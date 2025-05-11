@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graduation Blog</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Lightbox2 -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+    <!-- Swiper Slider -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --p: #ff6f61;
+            --s: #ffcc5c;
+            --a: #88d8b0;
+            --bg: #faf3e0;
+        }
+
+        body {
+            background: #faf3e0;
+            color: #333;
+        }
+
+        header {
+            height: 50vh;
+            background: linear-gradient(135deg, var(--p), var(--s));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            opacity: .2;
+        }
+
+        .header-text h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+        }
+
+        .header-text p {
+            font-size: 1.3rem;
+            opacity: .9;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fff !important;
+        }
+
+        .nav-link.active {
+            color: var(--p) !important;
+            font-weight: bold;
+        }
+
+        /* Swiper */
+        .swiper {
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .swiper-slide img {
+            border-radius: 8px;
+        }
+
+        /* Gallery */
+        .gallery-item img {
+            border-radius: 8px;
+            border: 3px solid var(--a);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+            transition: transform .3s;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--a);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .08);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            transform: translateX(-1rem);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: right;
+            transform: translateX(1rem);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1.8rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--p);
+            border: 4px solid var(--bg);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        /* Stories */
+        #stories .card {
+            border: 0;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        #stories .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .15);
+        }
+
+        #stories .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        /* Contact */
+        #contact .form-control {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: .75rem 1rem;
+        }
+
+        #contact .form-control:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 .25rem rgba(136, 216, 176, .25);
+        }
+
+        #contact button {
+            border-radius: 8px;
+            padding: .75rem 2rem;
+        }
+
+        @media(max-width:768px) {
+            .timeline::before {
+                left: 8px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 3rem;
+                transform: none;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header data-aos="zoom-in">
+        <div class="header-text">
+            <h1>Class of 2025</h1>
+            <p>Hành Trình Học Tập & Kỷ Niệm Đại Học</p>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg sticky-top shadow">
+        <div class="container"><a class="navbar-brand" href="#">🎓 Graduation Blog</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#slider">Highlights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Slider -->
+    <section id="slider" class="container-fluid swiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://source.unsplash.com/1200x600/?graduation,ceremony" class="w-100"
+                    alt=""></div>
+            <div class="swiper-slide"><img src="https://source.unsplash.com/1200x600/?university,students" class="w-100"
+                    alt=""></div>
+            <div class="swiper-slide"><img src="https://source.unsplash.com/1200x600/?campus,group" class="w-100"
+                    alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+    <!-- Gallery -->
+    <section id="gallery" class="container py-5" data-aos="fade-up">
+        <h2 class="text-center mb-5">Photo Gallery</h2>
+        <div class="row g-4">
+            <!-- Sample 8 images -->
+            ${Array.from({length:8}).map((_,i)=`<div class="col-6 col-md-3 gallery-item"><a
+                    href="https://source.unsplash.com/800x600/?college,${i}" data-lightbox="gallery"><img
+                        src="https://source.unsplash.com/400x300/?college,${i}" alt=""></a></div>`).join('')}
+        </div>
+    </section>
+    <!-- Timeline -->
+    <section id="timeline" class="container py-5" data-aos="fade-right">
+        <h2 class="text-center mb-5">Graduation Timeline</h2>
+        <div class="timeline">
+            ${[
+            ['Aug 2021','Semester 1 Begins','New friends and courses'],
+            ['Dec 2021','First Exams','Learning to prepare'],
+            ['May 2022','Project Showcase','Presenting our work'],
+            ['Jan 2023','Specialization Choice','Choosing major'],
+            ['Summer 2023','Internship','Real-world experience'],
+            ['Dec 2024','Thesis Work','Capstone projects'],
+            ['Mar 2025','Defenses','Final presentations'],
+            ['Apr 2025','Graduation Day','Caps and gowns']
+            ].map((item,i)=>`<div class="timeline-item" data-aos="fade-up" data-aos-delay="${i*100}">
+                <div class="timeline-date">${item[0]}</div>
+                <div class="timeline-title">${item[1]}</div>
+                <p>${item[2]}</p>
+            </div>`).join('')}
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="container py-5" data-aos="zoom-in">
+        <h2 class="text-center mb-4">Get in Touch</h2>
+        <form class="row g-3">
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Name" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required></div>
+            <div class="col-12"><textarea class="form-control" rows="4" placeholder="Message" required></textarea></div>
+            <div class="col-12 text-end"><button type="submit" class="btn btn-lg text-white"
+                    style="background:var(--a)">Send Message</button></div>
+        </form>
+    </section>
+    <!-- Footer -->
+    <footer class="text-center py-4" style="background:var(--p);color:#fff;"><small>&copy; 2025 Class of 2025 Graduation
+            Blog</small>
+        <div class="mt-2"><a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a><a href="#"
+                class="text-white me-3"><i class="fab fa-instagram"></i></a><a href="#" class="text-white"><i
+                    class="fab fa-twitter"></i></a></div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+    </script>
+</body>
+
+</html>
