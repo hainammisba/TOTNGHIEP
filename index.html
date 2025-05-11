@@ -437,7 +437,7 @@
         <h2 class="mb-4 text-center">Gửi Lời Nhắn & Chung Vui</h2>
         <p class="text-center mb-5">Mình rất vui nếu nhận được những dòng lưu bút và biết bạn có thể đến chung vui trong
             ngày đặc biệt này!</p>
-        <form method="POST" class="row g-4">
+        <form   action="https://formspree.io/f/xyzwdjpz" method="POST" class="row g-4">
             <div class="col-md-6">
                 <div class="mb-3" data-aos="fade-right">
                     <label for="fullName" class="form-label">Họ và Tên của bạn:</label>
@@ -475,7 +475,7 @@
                 }
             </style>
             <div class="col-12 text-center mt-4" data-aos="fade-up" data-aos-delay="300">
-                <button onclick="sendData()" type="submit" class="btn btn-lg text-white px-5 py-3"
+                <button type="submit" class="btn btn-lg text-white px-5 py-3"
                     style="background: var(--primary); font-weight: bold; letter-spacing: 0.5px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-send-fill me-2" viewBox="0 0 16 16">
@@ -487,22 +487,6 @@
             </div>
         </form>
     </section>
-      <script>
-    function sendData() {
-      const name = document.getElementById("name").value;
-
-      fetch("https://script.google.com/macros/s/1ARyOQsJEaRVoVFbpOIcgWVg6FKFzBOwQf9N0Fo_UunI/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name: name })
-      })
-      .then(response => response.text())
-      .then(result => alert("Đã gửi: " + result))
-      .catch(error => alert("Lỗi: " + error));
-    }
-  </script>
     <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
