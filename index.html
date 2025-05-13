@@ -1,550 +1,515 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-     
-    <meta charset="UTF-8" />
-     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Graduation Blog</title>
-       
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-       
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-       
-    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-      <style>
-        :root {
-            --primary: #ff6f61;
-            /* Coral */
-            --secondary: #ffcc5c;
-            /* Sunglow */
-            --accent: #88d8b0;
-            /* Medium Aquamarine */
-            --bg: #faf3e0;
-            /* Old Lace */
-        }
-
-        body {
-            background: var(--bg);
-            color: #333;
-        }
-
-        header {
-            height: 50vh;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 2rem;
-            /* Adding subtle pattern or texture */
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjA1Ij48cGF0aCBkPSJNMjkuODU2IDI0LjExOEwyMCAyMy4yMjIgMTAuMTQ0IDI0LjExOCAxNSAzMi4zNjF6bTIwIDBMMzkuODU2IDIzLjIyMiAzMCAyNC4xMThsNSAzMi4zNjF6TTEwIDMyLjM2MUwzMCAxMi4zODcgNTAgMzIuMzYxdjguODgzaC0yMFY0MS4yNDR2LTEwSDMwVjQxLjI0NGgyMFY1MWgzMFY0MS4yNDRsLTIwLTkuMzc3TDUwIDEyLjM4N3YtOC44ODNIMjB2OC44ODNMMCAzMi4zNjFWNDFoMjBWNTFoMzBWNDEuMjQ0bC0yMC05LjM3N0wyMCAxMi4zODd2LTguODgzaC0yMFYxMi4zODdMMjkuODU2IDI0LjExOHoiIGlkPSJjbGFzc3Jvb20tZHJhd2luZ3MiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==');
-            background-size: 30px;
-        }
-
-        .header-text h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-text p {
-            font-size: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .album-nav .nav-link {
-            color: #555;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .album-nav .nav-link.active {
-            background: var(--primary);
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .gallery-item {
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-item img {
-            border-radius: 8px;
-            border: 3px solid var(--accent);
-            /* Simple border frame */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
-            object-fit: cover;
-            /* Ensure images cover the space nicely */
-            width: 100%;
-            /* Make sure it's responsive */
-            height: auto;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            margin: 2rem 0;
-            padding: 0 1rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--accent);
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 1rem 2rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            transform: translateX(-1rem);
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            text-align: right;
-            transform: translateX(1rem);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 1.8rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 4px solid var(--bg);
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::before {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            left: -10px;
-        }
-
-        .timeline-title {
-            font-weight: bold;
-            font-size: 1.35rem;
-            color: var(--primary);
-        }
-
-        .timeline-date {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item p {
-            color: #555;
-        }
-
-        /* Stories Section */
-        #stories .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #stories .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        #stories .card-img-top {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            object-fit: cover;
-            height: 250px;
-        }
-
-        #stories .card-body {
-            text-align: center;
-        }
-
-        /* Contact Section */
-        #contact form .form-control {
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            padding: 0.75rem 1rem;
-        }
-
-        #contact form .form-control:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 0.25rem rgba(136, 216, 176, 0.25);
-        }
-
-        #contact form button {
-            border-radius: 8px;
-            padding: 0.75rem 2rem;
-        }
-
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .header-text p {
-                font-size: 1.1rem;
-            }
-
-            .timeline::before {
-                left: 8px;
-                margin-left: 0;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 2.5rem;
-                padding-right: 1rem;
-                margin-bottom: 1.5rem;
-                left: 0 !important;
-                text-align: left !important;
-                transform: translateX(0);
-            }
-
-            .timeline-item::before {
-                left: 0;
-            }
-
-            .timeline-item:nth-child(odd)::before,
-            .timeline-item:nth-child(even)::before {
-                left: 0;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lễ Tốt Nghiệp 2025 - MIS K2021</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@700&family=Parisienne&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-      <header data-aos="zoom-in">
-            <div class="header-text">
-                  <h1>Class of 2025</h1>
-                  <p>Hành Trình Học Tập & Kỷ Niệm Đại Học</p>
-                </div>
-          </header>
-
-        <nav class="navbar navbar-expand-lg shadow-sm sticky-top bg-white">
-            <div class="container">
-                  <a class="navbar-brand" href="#">Graduation Blog</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                  <div class="collapse navbar-collapse" id="navMenu">
-                        <ul class="navbar-nav ms-auto">
-                              <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                              <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
-                              <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
-                              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                            </ul>
-                      </div>
-                </div>
-          </nav>
-
-        <section id="gallery" class="container py-5" data-aos="fade-up">
-            <h2 class="mb-4 text-center">Photo Albums</h2>
-            <ul class="nav nav-pills justify-content-center album-nav mb-4">
-                  <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill"
-                    data-bs-target="#sem1">Semester 1</button></li>
-                  <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#sem2">Semester
-                    2</button></li>
-                  <li class="nav-item"><button class="nav-link" data-bs-toggle="pill"
-                    data-bs-target="#events">Events</button></li>
-                </ul>
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="sem1">
-                <div class="row g-3 justify-content-center">
-                    <!-- 4:3 Aspect Ratio Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-4x3">
-                            <img src="img/43.png" class="img-fluid rounded" alt="Placeholder 4:3">
-                        </div>
-                    </div>
-                    <!-- 16:9 Aspect Ratio Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-16x9">
-                            <img src="img/169.png" class="img-fluid rounded" alt="Placeholder 16:9">
-                        </div>
-                    </div>
-                    <!-- 9:16 Aspect Ratio Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-9x16">
-                            <img src="img/916.png" class="img-fluid rounded" alt="Placeholder 9:16">
-                        </div>
-                    </div>
-                    <!-- 1:1 Aspect Ratio Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-1x1">
-                            <img src="img/11.png" class="img-fluid rounded" alt="Placeholder 1:1">
-                        </div>
-                    </div>
-                    <!-- Additional 4:3 Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-4x3">
-                            <img src="img/43.png" class="img-fluid rounded" alt="Placeholder 4:3">
-                        </div>
-                    </div>
-                    <!-- Additional 16:9 Placeholder -->
-                    <div class="col-6 col-md-4 gallery-item">
-                        <div class="ratio ratio-16x9">
-                            <img src="img/169.png" class="img-fluid rounded" alt="Placeholder 16:9">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header data-aos="fade-down" data-aos-duration="1200">
+        <!-- Logo nhỏ ở giữa -->
+        <div style="text-align: center; margin-bottom: 10px;">
+            <img src="img/LOGO HVNH.png" alt="Logo" style="width: 50px; height: 50px;">
         </div>
 
-        <!-- Ensure you have added Bootstrap 5's ratio utility CSS -->
+        <h1 class="animate__animated animate__fadeInDown"
+            style="font-size: 2.5rem; font-weight: 700; color: #2c3e50; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">
+            🎓 Thư mời tham dự Lễ tốt nghiệp
+        </h1>
 
-         
+        <p class="animate__animated animate__fadeInUp animate__delay-0.5s"
+            style="font-size: 1.2rem; color: #34495e; margin-top: 10px; font-style: italic;">
+            Trân trọng kính mời từ <strong>Hà Hải Nam</strong>
+        </p>
+
+        <div class="seal-icon"><i class="fas fa-graduation-cap"></i></div>
+    </header>
+
+    <section id="invite-section" class="section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="card">
+            <h2>Thân mời</h2>
+            <p>
+                Ngày đầu bước vào cánh cổng đại học, tôi còn nhớ như in cảm giác bỡ ngỡ của một cậu sinh viên năm nhất. Đứng giữa
+                những bạn bè mới, những thầy cô chưa quen thuộc. Cánh cổng đó đã mở ra một thế giới hoàn toàn khác,
+                nơi tôi không còn là cậu học sinh ngây thơ ngày nào mà bắt đầu phải tự bước đi, tự gánh vác trách nhiệm
+                cho hành trình học tập và trưởng thành của mình.
+            </p>
+
+            <p>
+                Thời gian thấm thoắt trôi qua và bốn năm đại học, nhìn lại có thể nói rằng những khoảnh khắc ấy không
+                phải lúc nào cũng dễ dàng. Những đêm thức khuya miệt mài với bài vở, những dòng code, các deadline bài tập lớn, những kỳ thi căng thẳng, những bài
+                thuyết trình — hơi sợ một tý nhưng không sao, qua rùi hẹ hẹ hẹ. NHƯNG bên
+                cạnh những thử thách ấy, cũng có rất nhiều khoảnh khắc tuyệt vời (nhất là những lúc đi chơi), hay những lúc cùng nhau chia sẻ những câu chuyện vui (nói 6), những niềm vui nho nhỏ bên
+                bạn học, anh chị, thầy cô và gia đình. Chính những điều đó đã giúp tôi có thể đi qua mọi khó khăn, vững bước hơn
+                trên con đường học tập.
+            </p>
+
+            <p>
+                Và giờ đây, khi đứng trước ngưỡng cửa của ngày tốt nghiệp, tôi không khỏi cảm thấy bồi hồi, xúc động.
+                Quá khứ của những ngày đầu bỡ ngỡ, những khó khăn, thử thách và những thành công nhỏ bé đã dần hình
+                thành nên con người tôi hôm nay. Dù những năm tháng sinh viên không phải lúc nào cũng trọn vẹn, nhưng
+                chính những trải nghiệm ấy đã giúp tôi trưởng thành hơn (nhưng mà có vẻ khó tính hơn :( ), không chỉ trong học tập mà còn trong cách đối
+                mặt với cuộc sống, với bản thân và thế giới xung quanh. 
+            </p>
+
+            <p>
+                Hôm nay, tôi muốn gửi lời mời chân thành tới dự buổi lễ tốt nghiệp đến tất cả những người đã luôn đồng hành và ủng hộ tôi trong
+                suốt thời gian qua — các thầy cô, anh chị, bạn bè, gia đình và những người thân yêu. Sự hiện diện của mọi người tại
+                buổi lễ tốt nghiệp không chỉ là một niềm vinh hạnh mà còn là sự khẳng định rằng, tôi không chỉ
+                trưởng thành qua kiến thức, bài vở mà còn qua tình cảm, sự sẻ chia và những mối quan hệ đã được vun đắp trong
+                suốt những năm tháng này.
+            </p>
+
+            <p>
+                Một lần nữa, tôi xin chân thành cảm ơn và hy vọng được đón tiếp Quý vị trong buổi lễ trọng đại này, để
+                chúng ta cùng nhau nhìn lại chặng đường đã qua và bước tiếp vào những hành trình mới, với những ước mơ
+                và hy vọng đang chờ đón phía trước.
+            </p>
+
+            <p style="font-weight: bold; text-indent: 0px;" class="signature">
+                Trân trọng,<br>
+                Hà Hải Nam<br>
+                Sinh viên khóa 24, Ngành Hệ thống Thông tin Quản lý
+            </p>
+        </div>
+
     </section>
 
-        <section id="timeline" class="container py-5" data-aos="fade-right">
-            <h2 class="mb-4 text-center">Graduation Timeline</h2>
-            <div class="timeline">
-                  <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-date">Aug 2021</div>
-                        <div class="timeline-title">Semester 1 Begins</div>
-                        <p>First day at university, meeting new friends and diving into exciting courses. Everything
-                    felt new and full of possibilities.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="timeline-date">Dec 2021</div>
-                        <div class="timeline-title">First Semester Exams</div>
-                        <p>Survived the first round of university exams. A challenging but rewarding experience that
-                    taught us a lot about study habits.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="timeline-date">May 2022</div>
-                        <div class="timeline-title">End of First Year - Project Showcase</div>
-                        <p>Successfully completed the first year! Presented group projects and celebrated the end of the
-                    academic year with classmates.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="timeline-date">Jan 2023</div>
-                        <div class="timeline-title">Major Specialization Choice</div>
-                        <p>Made crucial decisions about our major and future academic path. Exciting times exploring
-                    deeper into our fields.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="timeline-date">Summer 2023</div>
-                        <div class="timeline-title">Internship / Research Experience</div>
-                        <p>Gained valuable real-world experience through internships or participated in research
-                    projects.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
-                        <div class="timeline-date">Dec 2024</div>
-                        <div class="timeline-title">Thesis/Capstone Project Work</div>
-                        <p>Intensive work on final thesis or capstone projects, applying years of knowledge.</p>
-                      </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="timeline-date">Mar 2025</div>
-                        <div class="timeline-title">Final Submissions & Defenses</div>
-                        <p>The final stretch! Submitting projects and defending our work.</p>
-                        </div>
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
-                        <div class="timeline-date">Apr 2025</div>
-                        <div class="timeline-title">Graduation Day!</div>
-                        <p>The culmination of years of hard work, dedication, and unforgettable memories. Cap, gown, and
-                    the future awaits!</p>
-                      </div>
-                </div>
-          </section>
-
-        <section id="stories" class="bg-white py-5" data-aos="zoom-in">
-            <div class="container">
-                  <h2 class="mb-4 text-center">Student Stories</h2>
-                  <div class="row gy-4">
-                        <div class="col-12 col-md-6" data-aos="fade-right">
-                              <div class="card border-0 shadow-sm">
-                                    <img src="https://source.unsplash.com/600x400/?friends-studying,university"
-                            class="card-img-top" alt="Friends studying">
-                                    <div class="card-body">
-                                          <h5 class="card-title">Friendship Moments</h5>
-                                          <p class="card-text">The friendships forged during university are truly
-                                special. From late-night study sessions to spontaneous outings, these bonds made the
-                                journey unforgettable.</p>
-                                        </div>
-                                  </div>
-                             </div>
-                        <div class="col-12 col-md-6" data-aos="fade-left">
-                              <div class="card border-0 shadow-sm">
-                                    <img src="https://source.unsplash.com/600x400/?inspiring-professor,lecture"
-                            class="card-img-top" alt="Inspiring lecture">
-                                    <div class="card-body">
-                                          <h5 class="card-title">Memorable Lectures & Professors</h5>
-                                          <p class="card-text">Some lectures weren't just about lessons; they were
-                                inspiring talks that shaped our perspectives. Grateful for the professors who went the
-                                extra mile.</p>
-                                        </div>
-                                  </div>
-                            </div>
-                <div class="col-12 col-md-6" data-aos="fade-right" data-aos-delay="100">
-                              <div class="card border-0 shadow-sm">
-                                    <img src="https://source.unsplash.com/600x400/?student-event,fun"
-                            class="card-img-top" alt="Student event">
-                                    <div class="card-body">
-                                          <h5 class="card-title">University Events & Fun</h5>
-                                          <p class="card-text">From freshers week to cultural festivals, the events
-                                added so much color and fun to university life. Great opportunities to relax and
-                                connect.</p>
-                                        </div>
-                                  </div>
-                            </div>
-                <div class="col-12 col-md-6" data-aos="fade-left" data-aos-delay="100">
-                              <div class="card border-0 shadow-sm">
-                                    <img src="https://source.unsplash.com/600x400/?graduation-memories,students"
-                            class="card-img-top" alt="Graduation memories">
-                                    <div class="card-body">
-                                          <h5 class="card-title">Reflecting on the Journey</h5>
-                                          <p class="card-text">Looking back at the past few years fills us with pride
-                                and nostalgia. Every challenge and triumph contributed to who we are today.</p>
-                                        </div>
-                                  </div>
-                            </div>
-                     
-            </div>
-                </div>
-          </section>
-
-    <section id="contact" class="container py-5" data-aos="fade-up">
-        <h2 class="mb-4 text-center">Gửi Lời Nhắn & Chung Vui</h2>
-        <p class="text-center mb-5">Mình rất vui nếu nhận được những dòng lưu bút và biết bạn có thể đến chung vui trong
-            ngày đặc biệt này!</p>
-        <form   action="https://formspree.io/f/xyzwdjpz" method="POST" class="row g-4">
-            <div class="col-md-6">
-                <div class="mb-3" data-aos="fade-right">
-                    <label for="fullName" class="form-label">Họ và Tên của bạn:</label>
-                    <input type="text" class="form-control form-control-lg" id="fullName"
-                        placeholder="Ví dụ: Nguyễn Văn A" required>
+    <section id="album" class="section" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">
+        <h2 class="section-title">Một số khoảnh khắc của mình</h2>
+        <div class="swiper-container mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_0.jpg" alt="Tốt nghiệp MIS 1" loading="lazy"
+                        data-description="ayya, NamHH chào tất cả mọi người <3 ">
                 </div>
-                <div class="mb-3" data-aos="fade-right" data-aos-delay="100">
-                    <label for="memories" class="form-label">Hãy viết một chút lưu bút cho mình nhé:</label>
-                    <textarea class="form-control form-control-lg" id="memories" rows="5"
-                        placeholder="Những kỷ niệm, lời chúc, hay bất cứ điều gì bạn muốn chia sẻ..."
-                        required></textarea>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_1.jpg" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="Mọi người xem ảnh dui dui nhé!!!">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_2.jpg" alt="Tốt nghiệp MIS 3" loading="lazy"
+                        data-description="Đây là ảnh mình thôi, không có gì cả...">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_3.jpg" alt="Tốt nghiệp MIS 4" loading="lazy"
+                        data-description="Lần đầu được đi Cao Bằng thích quáaa, cho iii lại với">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_4.jpg" alt="Tốt nghiệp MIS 5" loading="lazy"
+                        data-description="hẹ hẹ hẹ">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_5.jpg" alt="Tốt nghiệp MIS 6" loading="lazy"
+                        data-description="Trung bình Nam mùa thi, BTL">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_6.jpg" alt="Tốt nghiệp MIS 7" loading="lazy"
+                        data-description="Lúc này chắc đang làm đồ án + đi làm, mệt  ơi mệt">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_7.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Còn lúc này thì đi chơi ở Hà Lam iu dấu">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_HB_1.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Những chiếc học bổng không phải lần đầu">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_HB_2.jpg" alt="Tốt nghiệp MIS 9" loading="lazy"
+                        data-description="Còn này là những học pổng đời đầu">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_HB_3.jpg" alt="Tốt nghiệp MIS 10" loading="lazy"
+                        data-description="Cả chiếc Hbo chụp cùng cô Yến">
+                </div>
+                                <div class="swiper-slide">
+                    <img src="img/NamHH_HienMau.jpg" alt="Tốt nghiệp MIS 1" loading="lazy"
+                        data-description="4 năm ĐH đi hiến máu 2 lần, thấy bình thường nhưng vẫn sợ lắm">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_BiA.jpg" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="à thì 1 năm chơi bida 1 lần">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NamHH_LanHT.jpg" alt="Tốt nghiệp MIS 4" loading="lazy"
+                        data-description="Xin HTL đăng ảnh từ lâu rồi nhưng chưa đăng kkk">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_nhà.jpg" alt="Tốt nghiệp MIS 5" loading="lazy"
+                        data-description="Mỗi lần đi làm chỉ muốn nghỉ moe đi để về nhà nuôi gà">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_TuVanTuyenSinh.jpg" alt="Tốt nghiệp MIS 6" loading="lazy"
+                        data-description="Đi tuyển sinh chill chill">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NCKH.jpg" alt="Tốt nghiệp MIS 7" loading="lazy"
+                        data-description="Cũng gọi là NCKH nhưng còn cém ơi cém">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/TD108.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="anh em mình là cái gì đây">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/IMG_0508.png" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="anh em mình là,..">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/DaBong.JPG" alt="Tốt nghiệp MIS 9" loading="lazy"
+                        data-description="Thoi đi đá bóng cho đỡ sì chét">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/DaBong2.JPG" alt="Tốt nghiệp MIS 10" loading="lazy"
+                        data-description="Đá xong về vừa mệt vừa sì chétt">
+                </div>
+                                <div class="swiper-slide">
+                    <img src="img/DaBong3.jpg" alt="Tốt nghiệp MIS 1" loading="lazy"
+                        data-description="Nhưng cũng 1 lần được huy chương">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="img/TOEIC_1.jpg" alt="Tốt nghiệp MIS 3" loading="lazy"
+                        data-description="Cám ơn lớp TOEIC">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/TOEIC_2.jpg" alt="Tốt nghiệp MIS 4" loading="lazy"
+                        data-description="ehehe cám ơn chị Hạnh, dốt TA lắm nhưng em có chứng chỉ rùi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_a Hà.jpg" alt="Tốt nghiệp MIS 5" loading="lazy"
+                        data-description="anh em mình cứ thế thôi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_BonDing.jpg" alt="Tốt nghiệp MIS 6" loading="lazy"
+                        data-description="ACC đi bonding cùng Nam">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_BTT_ChuyenGiao.jpg" alt="Tốt nghiệp MIS 7" loading="lazy"
+                        data-description="Nam cùng BTT ACC trong lúc chuyển giao">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_BTT_SN.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Nam cùng BTT ACC ở lễ sinh nhật">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_dabonggiaoluu.jpg" alt="Tốt nghiệp MIS 9" loading="lazy"
+                        data-description="Đôi lúc ACC cũng biết đá póng">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_NhapHoc.jpg" alt="Tốt nghiệp MIS 10" loading="lazy"
+                        data-description="oi đi nhiều sự kiện quá">
+                </div>
+                                <div class="swiper-slide">
+                    <img src="img/ACC_PhuongNN.jpg" alt="Tốt nghiệp MIS 1" loading="lazy"
+                        data-description="Nam và Phương đi phỏng vấn CTV">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_SN9.jpg" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="Cùng đi sinh nhật nhé..">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/ACC_SN10.jpg" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="ACC 10 tuổi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_GoiBanhChung.jpg" alt="Tốt nghiệp MIS 3" loading="lazy"
+                        data-description="Gia đình hào môn đi gói bánh chưng Tết">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_HoiThao.jpg" alt="Tốt nghiệp MIS 4" loading="lazy"
+                        data-description="Éc, lâu lắm rồi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_HongNT.jpg" alt="Tốt nghiệp MIS 5" loading="lazy"
+                        data-description="hihi cũng lâu lắm rùi nhỉ">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_SN10.jpg" alt="Tốt nghiệp MIS 6" loading="lazy"
+                        data-description="Lại đi sinh nhật, nhưng của LCH">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_SN11.png" alt="Tốt nghiệp MIS 7" loading="lazy"
+                        data-description="Đi sinh nhật nữaaaa">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_TeamBuilding.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Thoi đi TeamBuilding cùng LCH để giảm cân">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/LCH_UongRuou.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Giảm cân rồi thì đi uống rượu thoi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/NAMHH_UBia.jpg" alt="Tốt nghiệp MIS 8" loading="lazy"
+                        data-description="Khong uống rượu được thì mình đi uống bia, lý do đi đá bóng từ 8h tối đến 6h sáng mới về phòng đây!!">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/KL_KhoaHTTT.jpg" alt="Tốt nghiệp MIS 9" loading="lazy"
+                        data-description="Cùng Khoa HTTTQL">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/KL_NT.jpg" alt="Tốt nghiệp MIS 10" loading="lazy"
+                        data-description="Thoi met doi, moi nguoi xem anh nhe">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/KL_MN.jpg" alt="Tốt nghiệp MIS 10" loading="lazy"
+                        data-description="Thoi met doi, moi nguoi xem anh nhe">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/KL_TM.jpg" alt="Tốt nghiệp MIS 1" loading="lazy"
+                        data-description="Thoi met doi, moi nguoi xem anh nhe">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/KL_YT.jpg" alt="Tốt nghiệp MIS 2" loading="lazy"
+                        data-description="Thoi met doi, moi nguoi xem anh nhe">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/C3_1.jpg" alt="Tốt nghiệp MIS 3" loading="lazy"
+                        data-description="Đôi lúc lại nhớ cấp 3...">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/C3_2.jpg" alt="Tốt nghiệp MIS 4" loading="lazy"
+                        data-description="Hồi lớp 11, chắc z">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/C3_3.jpg" alt="Tốt nghiệp MIS 5" loading="lazy"
+                        data-description="Ảnh mờ quá nhưng cệ đi">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/PTN11105.JPG" alt="Tốt nghiệp MIS 6" loading="lazy"
+                        data-description="Năm nay được đi dự rùi, công việc đã hoàn thànhh">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/TTHTDT.jpg" alt="Tốt nghiệp MIS 7" loading="lazy"
+                        data-description="Ngoài LCH, ACC thì đây cũng là 1 ngôi nhà nhỏ xíu ở ĐH của mình">
                 </div>
             </div>
-            <div class="col-12">
-                <div class="form-check form-switch fs-5 p-3 border rounded" style="background-color: #f8f9fa;">
-                    <label class="form-check-label pe-2" for="graduationAttendance">
-                        Bạn tham gia lễ tốt nghiệp cùng mình nhé?
-                    </label>
-                    <input class="form-check-input" type="checkbox" role="switch" id="graduationAttendance"
-                        style="height: 1.5em; width: 2.5em; margin-top: 0.3em;">
-                </div>
-            </div>
-
-            <style>
-                .form-check-reverse .form-check-label {
-                    margin-left: 0;
-                    margin-right: 1.5em;
-                    /* Tạo khoảng cách bên phải label */
-                }
-
-                .form-check-reverse .form-check-input {
-                    float: left;
-                    /* Đẩy input sang bên phải */
-                    margin-left: 0;
-                }
-            </style>
-            <div class="col-12 text-center mt-4" data-aos="fade-up" data-aos-delay="300">
-                <button type="submit" class="btn btn-lg text-white px-5 py-3"
-                    style="background: var(--primary); font-weight: bold; letter-spacing: 0.5px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-send-fill me-2" viewBox="0 0 16 16">
-                        <path
-                            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                    Gửi Lời Nhắn
-                </button>
-            </div>
-        </form>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </section>
-    <!-- Bootstrap Bundle JS (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
-      <script>
+    <section id="contact-info" class="section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+        <h2 class="section-title">Thông tin liên hệ</h2>
+        <div class="contact-grid">
+            <div class="contact-item" data-aos="zoom-in-up" data-aos-duration="800">
+                <i class="fas fa-user-graduate"></i>
+                <p>Hà Hải Nam (NamHH)</p>
+                <p style="font-size:0.9em;">SĐT: 036 676 4577</p>
+            </div>
+            <!-- Thời gian -->
+            <div class="contact-item" data-aos="zoom-in-up" data-aos-delay="150" data-aos-duration="800">
+                <i class="fas fa-clock"></i> <!-- icon đồng hồ cho thời gian -->
+                <p>Thời gian</p>
+                <p style="font-size:0.9em;">08:00 - 12:00, ngày 25/05/2024</p>
+            </div>
+
+            <!-- Địa điểm -->
+            <div class="contact-item" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="800">
+                <i class="fas fa-map-marker-alt"></i> <!-- icon địa điểm -->
+                <p>Địa điểm</p>
+                <p style="font-size:0.9em;">Học viện Ngân hàng,<br> 12 chùa Bộc, Quang Trung,<br> Đống Đa, Hà Nội</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="guestbook-section" class="section" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Hãy viết lưu bút cho mình nhé</h2>
+        <div class="card guestbook">
+            <input type="text" id="guestName" placeholder="Mình hay gọi bạn là...." required>
+            <textarea id="guestMessage" rows="5"
+                placeholder="Hãy cho mình một số kỉ niệm của chúng mình hay lời chúc nhaaaa..."
+                required></textarea>
+            <button onclick="submitGuestbookEntry()">Gửi lời chúc <i class="fas fa-paper-plane"
+                    style="margin-left: 8px;"></i></button>
+            <div id="guestbookConfirmation"
+                style="margin-top:1.5rem; text-align:center; font-weight:600; font-size: 1.1rem;"></div>
+        </div>
+    </section>
+
+    <footer data-aos="fade-up" data-aos-duration="1000">
+        <p>&copy; 05/2025 | Ha Hai Nam | Phu Tho</p>
+    </footer>
+
+    <div id="imageModal" class="image-modal">
+        <div class="image-modal-content">
+            <span class="image-modal-close-button" title="Đóng">&times;</span>
+            <img id="modalImage" src="" alt="Hình ảnh kỷ niệm chi tiết">
+            <div id="modalDescription" class="image-modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Firebase App (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <!-- Firebase Database (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
         AOS.init({
-            duration: 800,
-            once: true
-        }); // Increased duration slightly
-        // Initialize Masonry for each tab pane
-        document.querySelectorAll('.tab-pane .row').forEach(row => {
-            new Masonry(row, {
-                itemSelector: '.gallery-item',
-                percentPosition: true,
-                gutter: 20 // Increased gutter slightly for better spacing
-            });
+            duration: 1000,
+            offset: 80,
+            once: false
         });
-        // Re-layout Masonry when tabs are shown
-        document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(button => {
-            button.addEventListener('shown.bs.tab', function() {
-                const targetPaneId = this.getAttribute('data-bs-target');
-                const targetRow = document.querySelector(targetPaneId + ' .row');
-                if (targetRow) {
-                    // Wait for images to load before layout
-                    // A proper imagesLoaded library would be better here for production
-                    // For simplicity, using a timeout as a placeholder if imagesLoaded isn't available
-                    // (Note: The original HTML includes a comment about imagesLoaded but doesn't link the library itself in the script tag section)
-                    if (typeof imagesLoaded === 'function') {
-                        imagesLoaded(targetRow, function() {
-                            if (Masonry.data(targetRow)) {
-                                Masonry.data(targetRow).layout();
-                            }
-                        });
-                    } else {
-                        // Fallback if imagesLoaded is not present
-                        setTimeout(function() {
-                            if (Masonry.data(targetRow)) {
-                                Masonry.data(targetRow).layout();
-                            }
-                        }, 200); // Adjust timeout as needed
-                    }
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 40,
+                stretch: 0,
+                depth: 120,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    coverflowEffect: {
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: false,
+                    },
+                },
+                768: {
+                    slidesPerView: 2,
+                    coverflowEffect: {
+                        rotate: 35,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                },
+                1024: {
+                    slidesPerView: "auto",
+                }
+            }
+        });
+
+        // Khởi tạo Firebase và Database trước khi sử dụng
+        const firebaseConfig = {
+            apiKey: "AIzaSyA_dndFh9WDXZUgvN8TUFdv5k73lN4tuB8",
+            authDomain: "totnghiep-f0196.firebaseapp.com",
+            databaseURL: "https://totnghiep-f0196-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "totnghiep-f0196",
+            storageBucket: "totnghiep-f0196.firebasestorage.app",
+            messagingSenderId: "1046673800781",
+            appId: "1:1046673800781:web:a6b1e695786dbaf7b1a604"
+        };
+
+        // Khởi tạo Firebase App
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        function submitGuestbookEntry() {
+            const name = document.getElementById('guestName').value.trim();
+            const msg = document.getElementById('guestMessage').value.trim();
+            const confirmationDiv = document.getElementById('guestbookConfirmation');
+            const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+            const errorColor = "#E74C3C";
+
+            if (!name) {
+                confirmationDiv.style.color = errorColor;
+                confirmationDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Vui lòng nhập tên của bạn nhé!';
+                document.getElementById('guestName').focus();
+                setTimeout(() => { confirmationDiv.innerHTML = ''; }, 3000);
+                return;
+            }
+
+            if (!msg) {
+                confirmationDiv.style.color = errorColor;
+                confirmationDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Bạn ơi, đừng quên gửi lời chúc nhé!';
+                document.getElementById('guestMessage').focus();
+                setTimeout(() => { confirmationDiv.innerHTML = ''; }, 3000);
+                return;
+            }
+            console.log('📌 Biến database là:', database);
+            // Gửi vào Realtime Database
+            database.ref('guestbook').push({
+                name: name,
+                message: msg,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            });
+
+            // Hiển thị thông báo
+            confirmationDiv.style.color = accentColor;
+            confirmationDiv.innerHTML = `Mình, em, anh xin cảm ơn ${name} đã gửi những lời chúc ạ! Chúc cho ${name} luôn mạnh khỏe và đạt được nhiều thành công trong cuộc sống nhaaa.`;
+
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestMessage').value = '';
+
+            setTimeout(() => {
+                confirmationDiv.textContent = '';
+            }, 20000);
+        }
+
+
+
+        // --- Image Modal JavaScript ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeModalButton = document.querySelector('.image-modal-close-button');
+            const galleryImages = document.querySelectorAll('.swiper-slide img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    modalImage.src = this.src;
+                    modalImage.alt = this.alt;
+                    modalDescription.textContent = this.dataset.description ||
+                        "Chưa có mô tả cho ảnh này.";
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Chặn cuộn trang nền
+                });
+            });
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Cho phép cuộn trang nền lại
+            }
+            closeModalButton.addEventListener('click', closeModal);
+            // Đóng modal khi nhấp vào nền mờ (bên ngoài modal-content)
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
                 }
             });
-        });
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Đóng modal khi nhấn phím Escape
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
                 }
             });
         });

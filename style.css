@@ -1,0 +1,567 @@
+        :root {
+            /* Bảng màu được làm mới: Ấm áp, Thanh lịch, Tươi sáng với điểm nhấn xanh dịu */
+            --primary-color: #F89B28;
+            /* Cam chủ đạo */
+            --primary-darker: #E68A00;
+            /* Cam đậm hơn (cho hover, nhấn mạnh) */
+            --bg-main: #FFF8EF;
+            /* Nền chính: Kem đào rất nhạt, ấm */
+            --card-bg: #FFFFFF;
+            /* Nền card: Trắng */
+            --accent-color: #82A88A;
+            /* Xanh sage dịu (điểm nhấn) */
+            --highlight-color: #FFDCA2;
+            /* Vàng kem nhạt (cho gradient, highlight nhẹ) */
+
+            --text-primary: #5D4037;
+            /* Nâu ấm đậm (chữ chính) */
+            --text-secondary: #8D6E63;
+            /* Nâu ấm vừa (chữ phụ) */
+            --border-color: #EAE0D6;
+            /* Màu viền ấm, nhạt */
+            --shadow-color: rgba(93, 64, 55, 0.12);
+            /* Bóng đổ ấm hơn */
+
+            --gradient-header: linear-gradient(to bottom, var(--primary-color) 0%, var(--highlight-color) 100%);
+            --font-signature: 'Dancing Script', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Hình Bức Thư --- */
+        header {
+            background: var(--gradient-header);
+            padding: 4rem 1.5rem 8rem;
+            text-align: center;
+            color: #fff;
+            /* Giữ màu trắng cho chữ trên header */
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6rem), 50% 100%, 0 calc(100% - 6rem));
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            /* Tăng nhẹ độ sâu bóng */
+        }
+
+        header p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0.25rem auto;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        #invite-section p {
+            text-indent: 30px;
+        }
+
+        .seal-icon {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            /* Nền xanh sage */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            color: var(--card-bg);
+            /* Icon màu trắng/kem để nổi bật */
+            font-size: 1.6rem;
+            /* Tăng nhẹ kích thước icon */
+        }
+
+        .seal-icon .fas {
+            /* Áp dụng cho icon bên trong */
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+        }
+
+
+        .section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.4rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(var(--text-primary), 0.1);
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 5px;
+            background: var(--accent-color);
+            /* Gạch chân màu xanh sage */
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            /* Giảm nhẹ độ bo tròn */
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px var(--shadow-color), 0 1px 3px rgba(0, 0, 0, 0.05);
+            /* Bóng đổ ấm và rõ hơn */
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+            /* Thêm viền nhẹ nhàng */
+        }
+
+        /* Invitation */
+        #invite-section .card h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        #invite-section .card p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        #invite-section .card strong {
+            color: var(--primary-darker);
+            /* Cam đậm hơn cho chữ strong */
+            font-weight: 600;
+        }
+
+        #invite-section .signature {
+            font-family: var(--font-signature);
+            font-size: 3rem; /* Tăng kích thước chữ */
+            color: var(--primary-darker);
+            text-align: right;
+            margin-top: 1.5rem;
+        }
+
+
+
+        /* Photo Album - Swiper Slider */
+        .swiper-container {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 60px;
+            border-radius: 25px;
+            /* Đồng bộ bo tròn */
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 220px;
+            border-radius: 20px;
+            /* Đồng bộ bo tròn */
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eef2f7;
+            /* Màu nền chờ tải ảnh */
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            /* Thêm con trỏ chuột cho biết ảnh có thể nhấp */
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 25px;
+            /* Giảm bo tròn */
+            text-align: center;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            /* Giảm nhẹ scale */
+            box-shadow: 0 12px 30px rgba(229, 91, 0, 0.15);
+            /* Bóng đổ màu cam (RGB của primary-darker) */
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            /* Giảm margin */
+        }
+
+        .contact-item p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            /* Điều chỉnh khoảng cách giữa các p */
+        }
+
+        .contact-item p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item p[style*="font-size:0.9em"] {
+            /* Nhắm vào các p có style inline cụ thể */
+            color: var(--text-primary);
+            /* Đổi màu cho SĐT/Email để rõ hơn */
+            margin-top: 0.2rem;
+        }
+
+
+        /* Guestbook */
+        .guestbook input,
+        .guestbook textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            /* Giảm bo tròn */
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: var(--bg-main);
+            /* Nền input hơi khác card */
+        }
+
+        .guestbook input:focus,
+        .guestbook textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(248, 155, 40, 0.25);
+            /* RGBA của primary-color */
+            outline: none;
+        }
+
+        .guestbook button {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 20px;
+            /* Giảm bo tròn */
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(248, 155, 40, 0.3);
+            /* RGBA của primary-color */
+        }
+
+        .guestbook button:hover {
+            background: var(--primary-darker);
+            /* Cam đậm hơn khi hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(230, 138, 0, 0.4);
+            /* RGBA của primary-darker */
+        }
+
+        #guestbookConfirmation {
+            margin-top: 1.5rem;
+            color: var(--accent-color);
+            /* Màu xanh sage cho xác nhận thành công */
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+
+        /* Footer */
+        footer {
+            background: var(--gradient-header);
+            color: #fff;
+            /* Giữ màu trắng cho chữ trên footer */
+            text-align: center;
+            padding: 5rem 1rem 3rem;
+            position: relative;
+            clip-path: polygon(0 3rem, 50% 0, 100% 3rem, 100% 100%, 0 100%);
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        footer .fas.fa-heart {
+            color: var(--accent-color);
+            /* Trái tim màu xanh sage */
+            animation: pulseHeart 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseHeart {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* --- Image Modal Styles --- */
+        /* --- Image Modal Styles --- */
+        .image-modal {
+            display: none;
+            /* Ẩn ban đầu */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* overflow: auto; /* Dòng này sẽ được thay thế */
+            overflow-y: auto;
+            /* THAY ĐỔI: Chỉ cho phép cuộn dọc nếu nội dung modal cao hơn màn hình */
+            overflow-x: hidden;
+            /* THAY ĐỔI: Luôn ẩn thanh cuộn ngang cho modal */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Nền mờ */
+            align-items: center;
+            /* Canh giữa theo chiều dọc */
+            justify-content: center;
+            /* Canh giữa theo chiều ngang */
+            padding: 20px;
+            /* Giữ khoảng đệm để nội dung không sát viền màn hình */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Các phần CSS khác của modal (.image-modal.active, .image-modal-content, v.v.) giữ nguyên */
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .image-modal-content {
+            position: relative;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 20px;
+            /* Bo tròn */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px var(--shadow-color);
+            width: auto;
+            max-width: 800px;
+            /* Chiều rộng tối đa của modal */
+            max-height: 90vh;
+            /* Chiều cao tối đa, để có thể cuộn nếu cần */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            animation: zoomInModal 0.3s ease-out;
+        }
+
+        @keyframes zoomInModal {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .image-modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: var(--text-secondary);
+            font-size: 2.5rem;
+            /* To hơn cho dễ bấm */
+            font-weight: bold;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .image-modal-close-button:hover,
+        .image-modal-close-button:focus {
+            color: var(--primary-darker);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            /* Giới hạn chiều cao ảnh để có chỗ cho mô tả */
+            object-fit: contain;
+            border-radius: 15px;
+            /* Bo tròn nhẹ cho ảnh */
+            margin-bottom: 15px;
+        }
+
+        .image-modal-caption {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            text-align: left;
+            /* Canh lề trái cho dễ đọc mô tả dài */
+            padding: 10px;
+            background-color: var(--bg-main);
+            /* Nền nhẹ cho caption */
+            border-radius: 10px;
+            max-height: 15vh;
+            /* Giới hạn chiều cao caption */
+            overflow-y: auto;
+            /* Cho phép cuộn nếu caption dài */
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1rem 7rem;
+                min-height: 320px;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5rem), 50% 100%, 0 calc(100% - 5rem));
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .seal-icon {
+                bottom: 2rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                border-radius: 20px;
+                padding: 1.8rem;
+            }
+
+            /* Đồng bộ bo tròn responsive */
+            #invite-section .card h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item {
+                border-radius: 20px;
+            }
+
+            .guestbook input,
+            .guestbook textarea,
+            .guestbook button {
+                border-radius: 15px;
+            }
+
+            /* Bo tròn ít hơn trên mobile */
+            footer {
+                padding: 4rem 1rem 2rem;
+                clip-path: polygon(0 2.5rem, 50% 0, 100% 2.5rem, 100% 100%, 0 100%);
+            }
+
+            .image-modal-content {
+                padding: 20px;
+                max-width: 90vw;
+            }
+
+            .image-modal-close-button {
+                font-size: 2rem;
+                top: 8px;
+                right: 15px;
+            }
+
+            .image-modal-caption {
+                font-size: 0.9rem;
+            }
+        }
